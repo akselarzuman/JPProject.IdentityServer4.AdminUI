@@ -7,7 +7,7 @@ namespace Jp.Domain.Events.UserManagement
     {
         public string Picture { get; }
 
-        public ProfilePictureUpdatedEvent(Guid aggregateId,string picture)
+        public ProfilePictureUpdatedEvent(long aggregateId,string picture)
         {
             AggregateId = aggregateId.ToString();
             Picture = picture;

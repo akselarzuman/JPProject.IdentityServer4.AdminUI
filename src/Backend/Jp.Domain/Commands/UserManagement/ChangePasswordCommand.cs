@@ -6,7 +6,7 @@ namespace Jp.Domain.Commands.UserManagement
     public class ChangePasswordCommand : PasswordCommand
     {
 
-        public ChangePasswordCommand(Guid? id, string oldPassword, string newPassword, string confirmPassword)
+        public ChangePasswordCommand(long? id, string oldPassword, string newPassword, string confirmPassword)
         {
             Id = id;
             OldPassword = oldPassword;

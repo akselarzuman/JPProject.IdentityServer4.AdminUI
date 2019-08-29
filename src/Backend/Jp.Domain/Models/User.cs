@@ -8,7 +8,17 @@ namespace Jp.Domain.Models
     {
         // EF Constructor
         public User() { }
-        public User(Guid id, string email, string name, string userName, string phoneNumber, string picture)
+
+        public User(string email, string name, string userName, string phoneNumber, string picture)
+        {
+            Email = email;
+            Name = name;
+            UserName = userName;
+            PhoneNumber = phoneNumber;
+            Picture = picture;
+        }
+
+        public User(long id, string email, string name, string userName, string phoneNumber, string picture)
         {
             Id = id;
             Email = email;
@@ -18,7 +28,7 @@ namespace Jp.Domain.Models
             Picture = picture;
         }
 
-        public User(Guid id, string email, bool emailConfirmed, string passwordHash, string securityStamp, string phoneNumber, bool phoneNumberConfirmed, bool twoFactorEnabled, DateTimeOffset? lockoutEnd, bool lockoutEnabled, int accessFailedCount, string userName, string picture, string url, string name, string company, string bio, string jobTitle)
+        public User(long id, string email, bool emailConfirmed, string passwordHash, string securityStamp, string phoneNumber, bool phoneNumberConfirmed, bool twoFactorEnabled, DateTimeOffset? lockoutEnd, bool lockoutEnabled, int accessFailedCount, string userName, string picture, string url, string name, string company, string bio, string jobTitle)
         {
             Id = id;
             Email = email;
@@ -40,7 +50,7 @@ namespace Jp.Domain.Models
             JobTitle = jobTitle;
         }
 
-        public User(Guid id, string email, bool emailConfirmed, string name, string securityStamp, int accessFailedCount, string bio, string company, string jobTitle, bool lockoutEnabled, DateTimeOffset? lockoutEnd, string phoneNumber, bool phoneNumberConfirmed, string picture, bool twoFactorEnabled, string url, string userName)
+        public User(long id, string email, bool emailConfirmed, string name, string securityStamp, int accessFailedCount, string bio, string company, string jobTitle, bool lockoutEnabled, DateTimeOffset? lockoutEnd, string phoneNumber, bool phoneNumberConfirmed, string picture, bool twoFactorEnabled, string url, string userName)
         {
             Id = id;
             Email = email;
@@ -61,7 +71,7 @@ namespace Jp.Domain.Models
             UserName = userName;
         }
 
-        public Guid Id { get; private set; }
+        public long Id { get; private set; }
         public string Email { get; private set; }
         public bool EmailConfirmed { get; private set; }
         public string PasswordHash { get; private set; }

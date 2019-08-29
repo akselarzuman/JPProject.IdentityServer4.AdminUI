@@ -5,7 +5,7 @@ namespace Jp.Domain.Commands.UserManagement
 {
     public class SetPasswordCommand : PasswordCommand
     {
-        public SetPasswordCommand(Guid? id, string newPassword, string confirmPassword)
+        public SetPasswordCommand(long? id, string newPassword, string confirmPassword)
         {
             Id = id;
             Password = newPassword;

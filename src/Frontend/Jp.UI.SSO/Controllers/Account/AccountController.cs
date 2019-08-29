@@ -260,7 +260,7 @@ namespace Jp.UI.SSO.Controllers.Account
             // we must issue the cookie maually, and can't use the SignInManager because
             // it doesn't expose an API to issue additional claims from the login workflow
             // I don't have pride of this.
-            var s = new UserIdentity()
+            var s = new UserIdentity
             {
                 Id = user.Id,
                 Name = user.Name,

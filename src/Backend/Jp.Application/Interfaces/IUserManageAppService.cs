@@ -17,11 +17,11 @@ namespace Jp.Application.Interfaces
         Task ChangePassword(ChangePasswordViewModel model);
         Task CreatePassword(SetPasswordViewModel model);
         Task RemoveAccount(RemoveAccountViewModel model);
-        Task<bool> HasPassword(Guid userId);
+        Task<bool> HasPassword(long userId);
         Task<IEnumerable<EventHistoryData>> GetHistoryLogs(string username);
         
         Task<UserViewModel> GetUserDetails(string username);
-        Task<UserViewModel> GetUserAsync(Guid value);
+        Task<UserViewModel> GetUserAsync(long value);
         Task UpdateUser(UserViewModel model);
 
         Task<IEnumerable<ClaimViewModel>> GetClaims(string userName);

@@ -8,7 +8,7 @@ namespace Jp.Domain.Interfaces
     {
         string Username { get; }
         bool IsAuthenticated();
-        Guid UserId { get; }
+        long UserId { get; }
         IEnumerable<Claim> GetClaimsIdentity();
     }
 }

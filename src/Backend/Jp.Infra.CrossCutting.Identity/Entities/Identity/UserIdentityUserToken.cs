@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Jp.Infra.CrossCutting.Identity.Entities.Identity
 {
-    public class UserIdentityUserToken : IdentityUserToken<Guid>
+    public class UserIdentityUserToken : IdentityUserToken<long>
     {
         
     }

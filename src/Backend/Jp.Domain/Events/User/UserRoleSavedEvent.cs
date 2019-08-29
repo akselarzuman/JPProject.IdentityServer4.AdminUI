@@ -8,7 +8,7 @@ namespace Jp.Domain.Events.User
         public string Username { get; }
         public string Role { get; }
 
-        public UserRoleSavedEvent(Guid aggregateId, string username, string role)
+        public UserRoleSavedEvent(long aggregateId, string username, string role)
         {
             AggregateId = aggregateId.ToString();
             Username = username;

@@ -41,7 +41,6 @@ namespace Jp.Domain.CommandHandlers
             }
 
             var user = new User(
-                id: Guid.NewGuid(),
                 email: request.Email,
                 name: request.Name,
                 userName: request.Username,
@@ -77,11 +76,10 @@ namespace Jp.Domain.CommandHandlers
             if (!request.IsValid())
             {
                 NotifyValidationErrors(request);
-                return false; ;
+                return false;
             }
 
             var user = new User(
-                id: Guid.NewGuid(),
                 email: request.Email,
                 name: request.Name,
                 userName: request.Username,
@@ -121,7 +119,6 @@ namespace Jp.Domain.CommandHandlers
             }
 
             var user = new User(
-                id: Guid.NewGuid(),
                 email: request.Email,
                 name: request.Name,
                 userName: request.Username,

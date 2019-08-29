@@ -5,7 +5,7 @@ namespace Jp.Domain.Events.UserManagement
 {
     public class AccountRemovedEvent : Event
     {
-        public AccountRemovedEvent(Guid aggregateId)
+        public AccountRemovedEvent(long aggregateId)
         {
             AggregateId = aggregateId.ToString();
         }

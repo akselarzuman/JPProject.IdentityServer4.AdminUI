@@ -6,7 +6,7 @@ namespace Jp.Domain.Events.UserManagement
     public class PasswordChangedEvent : Event
     {
 
-        public PasswordChangedEvent(Guid aggregateId)
+        public PasswordChangedEvent(long aggregateId)
         {
             AggregateId = aggregateId.ToString();
         }

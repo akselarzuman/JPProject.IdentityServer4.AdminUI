@@ -44,26 +44,25 @@ namespace Jp.Infra.CrossCutting.Identity.Services
             _logger = loggerFactory.CreateLogger<UserService>(); ;
         }
 
-        public Task<Guid?> CreateUserWithPass(IDomainUser user, string password)
+        public Task<long?> CreateUserWithPass(IDomainUser user, string password)
         {
             return CreateUser(user, password, null, null);
         }
 
-        public Task<Guid?> CreateUserWithProvider(IDomainUser user, string provider, string providerUserId)
+        public Task<long?> CreateUserWithProvider(IDomainUser user, string provider, string providerUserId)
         {
             return CreateUser(user, null, provider, providerUserId);
         }
 
-        public Task<Guid?> CreateUserWithProviderAndPass(IDomainUser user, string password, string provider, string providerId)
+        public Task<long?> CreateUserWithProviderAndPass(IDomainUser user, string password, string provider, string providerId)
         {
             return CreateUser(user, password, provider, providerId);
         }
 
-        private async Task<Guid?> CreateUser(IDomainUser user, string password, string provider, string providerId)
+        private async Task<long?> CreateUser(IDomainUser user, string password, string provider, string providerId)
         {
             var newUser = new UserIdentity
             {
-                Id = Guid.NewGuid(),
                 PhoneNumber = user.PhoneNumber,
                 Email = user.Email,
                 UserName = user.UserName,
@@ -146,7 +145,7 @@ namespace Jp.Infra.CrossCutting.Identity.Services
             return GetUser(model);
         }
 
-        public async Task<Guid?> SendResetLink(string requestEmail, string requestUsername)
+        public async Task<long?> SendResetLink(string requestEmail, string requestUsername)
         {
             var user = await _userManager.FindByEmailAsync(requestEmail);
             if (user == null)
@@ -170,7 +169,7 @@ namespace Jp.Infra.CrossCutting.Identity.Services
             return user.Id;
         }
 
-        public async Task<Guid?> ResetPassword(ResetPasswordCommand request)
+        public async Task<long?> ResetPassword(ResetPasswordCommand request)
         {
             var user = await _userManager.FindByEmailAsync(request.Email);
             if (user == null)
@@ -197,7 +196,7 @@ namespace Jp.Infra.CrossCutting.Identity.Services
             return null;
         }
 
-        public async Task<Guid?> ConfirmEmailAsync(string email, string code)
+        public async Task<long?> ConfirmEmailAsync(string email, string code)
         {
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
@@ -336,7 +335,7 @@ namespace Jp.Infra.CrossCutting.Identity.Services
             return false;
         }
 
-        public async Task<bool> HasPassword(Guid userId)
+        public async Task<bool> HasPassword(long userId)
         {
             var user = await _userManager.FindByIdAsync(userId.ToString());
 
@@ -422,7 +421,7 @@ namespace Jp.Infra.CrossCutting.Identity.Services
             return GetUser(user);
         }
 
-        public async Task<User> GetUserAsync(Guid user)
+        public async Task<User> GetUserAsync(long user)
         {
             var userDb = await _userManager.FindByIdAsync(user.ToString());
             return GetUser(userDb);
@@ -451,7 +450,7 @@ namespace Jp.Infra.CrossCutting.Identity.Services
             return claims;
         }
 
-        public async Task<bool> SaveClaim(Guid userDbId, Claim claim)
+        public async Task<bool> SaveClaim(long userDbId, Claim claim)
         {
             var user = await _userManager.FindByIdAsync(userDbId.ToString());
             var result = await _userManager.AddClaimAsync(user, claim);
@@ -464,7 +463,7 @@ namespace Jp.Infra.CrossCutting.Identity.Services
             return result.Succeeded;
         }
 
-        public async Task<bool> RemoveClaim(Guid userId, string type)
+        public async Task<bool> RemoveClaim(long userId, string type)
         {
             var user = await _userManager.FindByIdAsync(userId.ToString());
             var claims = await _userManager.GetClaimsAsync(user);
@@ -485,7 +484,7 @@ namespace Jp.Infra.CrossCutting.Identity.Services
             return await _userManager.GetRolesAsync(user);
         }
 
-        public async Task<bool> RemoveRole(Guid userDbId, string requestRole)
+        public async Task<bool> RemoveRole(long userDbId, string requestRole)
         {
             var user = await _userManager.FindByIdAsync(userDbId.ToString());
             var result = await _userManager.RemoveFromRoleAsync(user, requestRole);
@@ -499,7 +498,7 @@ namespace Jp.Infra.CrossCutting.Identity.Services
         }
 
 
-        public async Task<bool> SaveRole(Guid userId, string role)
+        public async Task<bool> SaveRole(long userId, string role)
         {
             var user = await _userManager.FindByIdAsync(userId.ToString());
             var result = await _userManager.AddToRoleAsync(user, role);
@@ -519,7 +518,7 @@ namespace Jp.Infra.CrossCutting.Identity.Services
             return logins.Select(a => new UserLogin(a.LoginProvider, a.ProviderDisplayName, a.ProviderKey));
         }
 
-        public async Task<bool> RemoveLogin(Guid userId, string loginProvider, string providerKey)
+        public async Task<bool> RemoveLogin(long userId, string loginProvider, string providerKey)
         {
             var user = await _userManager.FindByIdAsync(userId.ToString());
             var result = await _userManager.RemoveLoginAsync(user, loginProvider, providerKey);
@@ -571,7 +570,7 @@ namespace Jp.Infra.CrossCutting.Identity.Services
             return !string.IsNullOrEmpty(search) ? _userManager.Users.Where(UserFind(search)).CountAsync() : _userManager.Users.CountAsync();
         }
 
-        public async Task<Guid?> AddLoginAsync(string email, string provider, string providerId)
+        public async Task<long?> AddLoginAsync(string email, string provider, string providerId)
         {
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)

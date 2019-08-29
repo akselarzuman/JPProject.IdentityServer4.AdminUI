@@ -1,11 +1,10 @@
-﻿using System;
-using Jp.Domain.Validations.UserManagement;
+﻿using Jp.Domain.Validations.UserManagement;
 
 namespace Jp.Domain.Commands.UserManagement
 {
-    public class RemoveAccountCommand:ProfileCommand
+    public class RemoveAccountCommand : ProfileCommand
     {
-        public RemoveAccountCommand(Guid? id)
+        public RemoveAccountCommand(long? id)
         {
             Id = id;
         }

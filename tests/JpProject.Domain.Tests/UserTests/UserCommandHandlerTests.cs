@@ -71,7 +71,7 @@ namespace JpProject.Domain.Tests.UserTests
         {
             var command = UserCommandFaker.GenerateAddLoginCommand().Generate();
 
-            _userService.Setup(s => s.AddLoginAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync((Guid?)null);
+            _userService.Setup(s => s.AddLoginAsync(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>())).ReturnsAsync((long?)null);
 
             var result = await _commandHandler.Handle(command, _tokenSource.Token);
 

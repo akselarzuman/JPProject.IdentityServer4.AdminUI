@@ -8,7 +8,7 @@ namespace Jp.Domain.Events.UserManagement
     {
         public UpdateProfileCommand Request { get; }
 
-        public ProfileUpdatedEvent(Guid aggregateId,UpdateProfileCommand request)
+        public ProfileUpdatedEvent(long aggregateId,UpdateProfileCommand request)
         {
             AggregateId = aggregateId.ToString();
             Request = request;

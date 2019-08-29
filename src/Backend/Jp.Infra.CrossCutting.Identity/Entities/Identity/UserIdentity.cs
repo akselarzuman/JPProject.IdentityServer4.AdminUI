@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace Jp.Infra.CrossCutting.Identity.Entities.Identity
 {
-    public class UserIdentity : IdentityUser<Guid>, IDomainUser
+    public class UserIdentity : IdentityUser<long>, IDomainUser
     {
         public string Picture { get; set; }
         public string Url { get; set; }

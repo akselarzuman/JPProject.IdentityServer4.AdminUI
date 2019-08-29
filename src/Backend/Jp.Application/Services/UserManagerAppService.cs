@@ -75,7 +75,7 @@ namespace Jp.Application.Services
             return Bus.SendCommand(registerCommand);
         }
 
-        public Task<bool> HasPassword(Guid userId)
+        public Task<bool> HasPassword(long userId)
         {
             return _userService.HasPassword(userId);
         }
@@ -99,7 +99,7 @@ namespace Jp.Application.Services
             return _mapper.Map<UserViewModel>(users);
         }
 
-        public async Task<UserViewModel> GetUserAsync(Guid value)
+        public async Task<UserViewModel> GetUserAsync(long value)
         {
             var users = await _userService.GetUserAsync(value);
             return _mapper.Map<UserViewModel>(users);

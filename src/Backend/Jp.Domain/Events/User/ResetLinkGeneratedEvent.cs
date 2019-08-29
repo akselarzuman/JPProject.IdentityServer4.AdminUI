@@ -8,7 +8,7 @@ namespace Jp.Domain.Events.User
         public string Email { get; }
         public string Username { get; }
 
-        public ResetLinkGeneratedEvent(Guid aggregateId, string email, string username)
+        public ResetLinkGeneratedEvent(long aggregateId, string email, string username)
         {
             AggregateId = aggregateId.ToString();
             Email = email;

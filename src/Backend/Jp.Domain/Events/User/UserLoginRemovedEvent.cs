@@ -9,7 +9,7 @@ namespace Jp.Domain.Events.User
         public string LoginProvider { get; }
         public string ProviderKey { get; }
 
-        public UserLoginRemovedEvent(Guid aggregateId, string username, string loginProvider, string providerKey)
+        public UserLoginRemovedEvent(long aggregateId, string username, string loginProvider, string providerKey)
         {
             AggregateId = aggregateId.ToString();
             Username = username;

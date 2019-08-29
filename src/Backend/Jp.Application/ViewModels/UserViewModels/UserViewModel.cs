@@ -27,7 +27,7 @@ namespace Jp.Application.ViewModels.UserViewModels
         public string Company { get; set; }
         public string Bio { get; set; }
         public string JobTitle { get; set; }
-        public Guid Id { get; set; }
+        public long Id { get; set; }
         public bool EmailConfirmed { get; set; }
         public bool PhoneNumberConfirmed { get; set; }
         public bool TwoFactorEnabled { get; set; }

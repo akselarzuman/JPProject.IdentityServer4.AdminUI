@@ -8,7 +8,7 @@ namespace Jp.Domain.Events.User
         public string Email { get; }
         public string Code { get; }
 
-        public AccountPasswordResetedEvent(Guid aggregateId, string email, string code)
+        public AccountPasswordResetedEvent(long aggregateId, string email, string code)
         {
             AggregateId = aggregateId.ToString();
             Email = email;

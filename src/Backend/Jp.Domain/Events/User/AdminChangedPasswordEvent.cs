@@ -7,7 +7,7 @@ namespace Jp.Domain.Events.User
     {
         public string Username { get; }
 
-        public AdminChangedPasswordEvent(Guid userId, string username)
+        public AdminChangedPasswordEvent(long userId, string username)
         {
             Username = username;
             AggregateId = userId.ToString();

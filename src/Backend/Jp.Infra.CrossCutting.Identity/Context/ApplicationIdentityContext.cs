@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Jp.Infra.CrossCutting.Identity.Context
 {
-    public class ApplicationIdentityContext : IdentityDbContext<UserIdentity, UserIdentityRole, Guid, UserIdentityUserClaim, UserIdentityUserRole, UserIdentityUserLogin, UserIdentityRoleClaim, UserIdentityUserToken>
+    public class ApplicationIdentityContext : IdentityDbContext<UserIdentity, UserIdentityRole, long, UserIdentityUserClaim, UserIdentityUserRole, UserIdentityUserLogin, UserIdentityRoleClaim, UserIdentityUserToken>
     {
         public ApplicationIdentityContext(DbContextOptions<ApplicationIdentityContext> options)
             : base(options)

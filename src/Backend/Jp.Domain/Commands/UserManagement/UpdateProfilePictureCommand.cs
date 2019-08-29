@@ -5,7 +5,7 @@ namespace Jp.Domain.Commands.UserManagement
 {
     public class UpdateProfilePictureCommand : ProfileCommand
     {
-        public UpdateProfilePictureCommand(Guid? id, string picture)
+        public UpdateProfilePictureCommand(long? id, string picture)
         {
             Picture = picture;
             Id = id;

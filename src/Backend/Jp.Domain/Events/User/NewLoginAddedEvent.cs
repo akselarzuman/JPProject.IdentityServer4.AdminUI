@@ -9,7 +9,7 @@ namespace Jp.Domain.Events.User
         public string Provider { get; }
         public string ProviderId { get; }
 
-        public NewLoginAddedEvent(Guid aggregateId, string email, string provider, string providerId)
+        public NewLoginAddedEvent(long aggregateId, string email, string provider, string providerId)
         {
             Email = email;
             Provider = provider;

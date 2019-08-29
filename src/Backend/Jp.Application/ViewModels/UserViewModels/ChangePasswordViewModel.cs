@@ -22,6 +22,6 @@ namespace Jp.Application.ViewModels.UserViewModels
         public string ConfirmPassword { get; set; }
 
         public string StatusMessage { get; set; }
-        public Guid? Id { get; set; }
+        public long? Id { get; set; }
     }
 }

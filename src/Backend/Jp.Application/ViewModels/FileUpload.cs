@@ -13,7 +13,7 @@ namespace Jp.Application.ViewModels
         [Required(ErrorMessage = "Invalid image")]
         public string Value { get; set; }
 
-        public Guid? Id { get; set; }
+        public long? Id { get; set; }
         [JsonIgnore]
         public string Picture { get; set; }
     }

@@ -6,7 +6,7 @@ namespace Jp.Domain.Commands.UserManagement
     public class UpdateProfileCommand : ProfileCommand
     {
 
-        public UpdateProfileCommand(Guid? id, string url, string bio, string company, string jobTitle, string name, string phoneNumber)
+        public UpdateProfileCommand(long? id, string url, string bio, string company, string jobTitle, string name, string phoneNumber)
         {
             Id = id;
             Url = url;

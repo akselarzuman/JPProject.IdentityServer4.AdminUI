@@ -10,6 +10,6 @@ namespace Jp.Application.ViewModels.UserViewModels
         [Required]
         public string Username { get; set; }
 
-        public Guid UserId { get; set; }
+        public long UserId { get; set; }
     }
 }
